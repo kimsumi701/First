@@ -11,6 +11,18 @@ let playButton = document.getElementById('play_button');
     document.getElementById : id 선택
     document.getElementByClassName : class로 선택, 같은 class가 여러개 있을 경우엔 모두 다 선택이 되서 배열에 저장된다.
 */
+/* 
+    let userInput = document.querySelector("#user-input");
+    >> id=user-input을 선택
+    let resultAreaImg = document.querySelector(".main-img");
+    >> class=main=img를 선택
+    let menus = document.querySelector("nav a");
+    >> nav 태그밑에 있는 a 태그를 선택
+
+    document.querySelectorAll : 위에 document.querySelectort와 같다.
+    하지만 All에서 알수있듯이 선택된값 모두를 NodeList에 담아 반환한다
+
+*/
 function picRandomNumber() {
     // 1~100 랜덤값
     computerNumber = Math.floor(Math.random() * 100) + 1;    
