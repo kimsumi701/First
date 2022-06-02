@@ -1,5 +1,12 @@
 let computerNumber = 0;
 let playButton = document.getElementById('play_button');
+let userInput = document.querySelector('#user_input');
+let resultArea = document.getElementById('result_area');
+let resetButton = document.querySelector('#reset_button');
+let chancesArea = document.getElementById('chance_area');
+let chances = 5;
+let gameOver = false;
+let userValueList = [];
 /* 
     document는 DOM트리의 최상위 객체다.
     DOM(Document Object Model)이라 하면 자바스크립트 입장에서 그저 일종의 문자열일 뿐인 HTML을 자바스크립트가 이해할 수 있게
@@ -23,9 +30,13 @@ let playButton = document.getElementById('play_button');
     하지만 All에서 알수있듯이 선택된값 모두를 NodeList에 담아 반환한다
 
 */
+playButton.addEventListener('click', play);
+/* addEventListener('이벤트의 이름', 이벤트 발생시 실행시킬 함수의 이름) */
+resetButton.addEventListener('click', reset);
+userInput.addEventListener('focus', function() {userInput.value = ''});
 function picRandomNumber() {
     // 1~100 랜덤값
-    computerNumber = Math.floor(Math.random() * 100) + 1;    
+    computerNumber = Math.floor(Math.random() * 10) + 1;    
     console.log(computerNumber);
 }
 /* 
@@ -37,4 +48,69 @@ function picRandomNumber() {
     Math.max() : 여러개의 값중 제일 큰값 반환
     Math.min() : 여러개의 값중 제일 작은값 반환
 */
+function play() {
+    const USER_VALUE = userInput.value;
+    if (USER_VALUE < 1 || USER_VALUE > 100) {
+        resultArea.textContent = '1~100 사이의 숫자를 입력해주세요.';
+        return;
+    }
+    if (userValueList.includes(USER_VALUE)) {
+        resultArea.textContent = '이미 입력한 숫자입니다.';
+        return;
+    }
+    userValueList.push(USER_VALUE);
+    if (USER_VALUE < computerNumber) {
+        resultArea.textContent = 'UP!!';
+    } else if (USER_VALUE > computerNumber) {
+        resultArea.textContent = 'DAWN!!';
+    } else {
+        resultArea.textContent = '정답!!';
+        gameOver = true;
+    }
+    /* 
+        다양한 노드의 속성값
+
+        textContent : 노드의 text 값을 반환
+        innerText : 노드의 text값을 반환, textContent랑 비슷하지만 textContent는 모든 요소를 반환하는 반면에,
+        InnerText는 사람이 읽을 수 있는 요소만 가져온다. (글자사이에 여백이 많다면 textContent는 있는 그대로,
+            가져오는 반면에 innerText는 여백을 한칸정도만 남기고 가져온다.)
+        innerHTML : html 요소를 반환
+
+        셋의 차이를 잘 보여주는 예제 코드.
+        다음 코드를 실행시켜보면 차이가 확연하게 들어난다.
+
+        HTML 상의 마크업
+        <h1 id="test">
+            <div>Hello      world</div>
+        </h1>
+
+        script 상의 코드
+        let text = document.getElementById("test")
+        console.log(test.innerText)
+        console.log(test.textContent)
+        console.log(test.innerHTML)
+
+        이외에도 다양한 노드 속성과 함수는 다음 사이트에서 확인가능하다.
+        https://developer.mozilla.org/ko/docs/web/API/Node
+    */
+    chances--;
+    chancesArea.innerHTML = `남은 찬스 : ${chances}번`;
+    if (chances == 0) {
+        gameOver = true;
+    }
+    if (gameOver == true) {
+        playButton.disabled = true;
+    }
+}
+function reset() {
+    picRandomNumber();
+    userInput.value = '';
+    resultArea.textContent = '결과가 나온다';
+    gameOver = false;
+    playButton.disabled = false;
+    chances = 5;
+    chancesArea.innerHTML = `남은 찬스 : ${chances}번`;
+    userValueList = [];
+}
+
 picRandomNumber();
