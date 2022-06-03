@@ -1,7 +1,6 @@
 @charset 'utf-8';
 
-#wrap {
-    position: relative;
+#wrap {    
     width: 100%;
     height: 100%;
     min-width: 320px;
@@ -9,28 +8,31 @@
     margin: 0 auto;     
 }
 
-img {
-    width: 100%;
+body {
     height: 100vh;
-    background-size: 100%, auto;
+    background-image: url(./Img/city.jpg);
     background-repeat: no-repeat;
-    opacity: 0.7;
+    background-size: cover;
+    /* padding: 20px; */   
 }
 
+
 .border {    
-    position: absolute;
-    top: 15%;    
-    width: 80%;
-    height: 60vh;   
-    margin: 40px;
+    display: flex;
+    
+    width: 270px;
+    height: 270px;       
+    margin: 0 auto;   
+    margin-top: 70px;
     border: 10px solid rgb(156, 171, 240);
     background-color: aliceblue;
     border-radius: 50%;
     opacity: 0.7;
 }
 
-.box1 {   
-   text-align: center;
+.box1 {       
+    margin: auto;
+    text-align: center;
 }
 
 body,
@@ -42,30 +44,30 @@ input {
     color: #121212;
 }
 
-#result_area {
+/* #result_area {
     height: 50px;
     font-size: 18px;
 }
 #chance_area{
     height: 50px;
     font-size: 18px;
-}
+} */
 
-input {
+/* input {
     margin: 20px 0;
 }
 
 button {
     width: 100px;
-}
+} */
 
-h1 {    
+/* h1 {    
     margin: 20%;
     font-size: 25px;
-}
+} */
 
 /* 테블릿 사이즈 */
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
     #wrap {
         max-width: 1259px;
     }
@@ -99,7 +101,7 @@ h1 {
 }
 
 /* pc 사이즈 */
-@media (min-width: 1260px) {
+/* @media (min-width: 1260px) {
     #wrap {
         max-width: 1919px;
     }
@@ -131,4 +133,4 @@ h1 {
     button {
        height: 40px;
     } 
-}
+} */ 
