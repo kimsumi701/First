@@ -50,8 +50,8 @@ function picRandomNumber() {
 */
 function play() {
     const USER_VALUE = userInput.value;
-    if (USER_VALUE < 1 || USER_VALUE > 100) {
-        resultArea.textContent = '1~100 사이의 숫자를 입력해주세요.';
+    if (USER_VALUE < 1 || USER_VALUE > 10) {
+        resultArea.textContent = '1~10 사이의 숫자를 입력해주세요.';
         return;
     }
     if (userValueList.includes(USER_VALUE)) {
