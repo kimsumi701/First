@@ -6,7 +6,7 @@ let resetButton = document.querySelector('#reset_button');
 let chancesArea = document.getElementById('chance_area');
 let chances = 5;
 let gameOver = false;
-let userValueList = [];
+let userValueList = []; 
 /* 
     document는 DOM트리의 최상위 객체다.
     DOM(Document Object Model)이라 하면 자바스크립트 입장에서 그저 일종의 문자열일 뿐인 HTML을 자바스크립트가 이해할 수 있게
@@ -102,7 +102,7 @@ function play() {
         playButton.disabled = true;
     }
 }
-function reset() {
+function reset() {    
     picRandomNumber();
     userInput.value = '';
     resultArea.textContent = '결과가 나온다';
@@ -110,7 +110,7 @@ function reset() {
     playButton.disabled = false;
     chances = 5;
     chancesArea.innerHTML = `남은 찬스 : ${chances}번`;
-    userValueList = [];
+    userValueList = [];  
 }
 
 picRandomNumber();

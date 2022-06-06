@@ -1,11 +1,12 @@
 @charset 'utf-8';
 
 #wrap {    
+    /* position: relative; */
     width: 100%;
     height: 100%;
     min-width: 320px;
     max-width: 420px;
-    margin: 0 auto;     
+    margin: 0 auto;      
 }
 
 body {
@@ -17,20 +18,36 @@ body {
 }
 
 .border {    
-    display: flex;    
+    /* display: flex;         */
+    /* position: absolute;
+    top: 22%;
+    left: 30%; */
+    
     width: 270px;
     height: 270px;       
     margin: 0 auto;       
     margin-top: 35%;
-    border: 10px solid rgb(156, 171, 240);
-    border-radius: 40%;
-    background-color: aliceblue;    
+    /* border: 10px solid rgb(156, 171, 240); */
+    border-radius: 35%;        
+    /* transform: rotate(30deg); */
+    background-color: lightblue;    
     opacity: 0.9;
+
+    transition-duration: 0.75s;
+    transition-property: margin-bottom;
+    transition-timing-function: ease;
+    animation: rotate 2000ms infinite linear;
 }
 
-.box1 {       
-    margin: auto;
-    text-align: center;
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    from { transform: rotate(360deg); }
+  }
+
+.box1 {  
+    transform: translateY(-150%);
+    margin: 0 auto;    
+    text-align: center;    
 }
 
 body,
@@ -80,6 +97,7 @@ h1 {
     color: darksalmon;    
 }
 
+
 /* 테블릿 사이즈 */
 @media (min-width: 768px) {
     #wrap {
@@ -88,8 +106,22 @@ h1 {
     .border {
         width: 400px;
         height: 400px;   
-        margin-top: 15%;         
+        margin-top: 20%;         
     }    
+    .box1 {
+        transform: translateY(-160%);
+    }
+    h1 {            
+        font-size: 35px;
+    }
+    #result_area { 
+        margin-bottom: 20px;
+        font-size: 22px;        
+    }
+    #chance_area{
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
 }
 
 /* pc 사이즈 */
@@ -106,7 +138,23 @@ h1 {
         height: 600px;   
         margin: 0 auto;
         margin-top: 30%;     
+        
    }
-
+   .box1 {
+        transform: translateY(-130%);
+    }
+    h1 {            
+        margin-top: -5%;
+        margin-bottom: 5%;
+        font-size: 45px;
+    }
+    #result_area { 
+       
+        font-size: 22px;        
+    }
+    #chance_area{
+       
+        font-size: 20px;
+    }
    
 } 
