@@ -4,15 +4,26 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>first</title>
+        <title>PickNumberGame</title>                
         <link rel="stylesheet" href="style.css" />
     </head>
-    <body>
-        <header>
-            <nav>내용을 추가했습니다.</nav>
-        </header>
-        <main></main>
-        <footer></footer>
-        <script src="./main.js"></script>
+    <body>               
+        <div id="wrap">         
+            <ul>
+                <li class="border"></li>
+                <li class="border2"></li>
+            </ul>                 
+            <div class="box1">                                        
+                <h1>숫자 맞추기 게임</h1>                                        
+                <div id="result_area">결과가 나온다</div>                    
+                <div id="chance_area">남은 기회 : 5번</div>                                       
+                <input type="Number" id="user_input" value=" ">
+                <div class="button">
+                    <button id="play_button">Go</button>                    
+                    <button id="reset_button">Reset</button>                        
+                </div>                                                          
+            </div>     
+        </div> 
+        <script src="./main.js"></script>      
     </body>
 </html>
